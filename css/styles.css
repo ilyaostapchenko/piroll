@@ -20,6 +20,11 @@ body {
     justify-content: space-around;
 }
 
+#navbar-checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
 .logotype {
     order: 1;
     text-align: center;
@@ -144,11 +149,11 @@ ul.nav-bar li>a:hover {
 .professional-skills {
     box-sizing: border-box;
     display: flex;
-    height: 570px;
+    height: 400px;
 }
 
 .img-skill {
-    background: url(/media/hexagons_general_page.png);
+    background: url(../media/hexagons_general_page.png);
     background-attachment: fixed;
     background-size: 50% 100%;
     width: 150px;
@@ -157,8 +162,8 @@ ul.nav-bar li>a:hover {
 }
 
 .skills {
-    width: 50px;
-    height: 100%;
+    /* width: 50px;
+    height: 100%; */
     flex: 3;
     display: flex;
     justify-content: center;
@@ -226,6 +231,11 @@ ul.nav-bar li>a:hover {
     color: white;
 }
 
+.fa-artstation {
+    font-size: 80px;
+    color: white;
+}
+
 .text {
     color: rgb(255, 255, 255);
     padding-left: 25px;
@@ -266,7 +276,6 @@ ul.nav-bar li>a:hover {
     height: 300px;
     padding: 15px 0px;
     background-color: #f8f8f8;
-
 }
 
 .item_of_katalog>img {
@@ -332,7 +341,7 @@ ul.nav-bar li>a:hover {
     align-items: center;
 }
 
-.video-box > p {
+.video-box>p {
     position: relative;
     color: #787878;
     width: 40%;
@@ -341,7 +350,7 @@ ul.nav-bar li>a:hover {
 }
 
 .video {
-    max-width: 1078px;
+    max-width: 878px;
     /* max-height: 570px; */
     border-radius: 20px;
     background-color: rgb(238, 238, 238);
@@ -349,8 +358,8 @@ ul.nav-bar li>a:hover {
 }
 
 @media (max-width: 900px) {
-    .video {
-        width: 890px;
+    .projects_completed, .working_hours, .feedbacks, .happy_clients {
+        height: 150px;
     }
 }
 
@@ -368,12 +377,15 @@ ul.nav-bar li>a:hover {
         order: 2;
         width: 100%;
     }
+    .projects_completed, .working_hours, .feedbacks, .happy_clients {
+        height: 200px;
+    }
+
     .results {
         height: 480px;
     }
-
     .video {
-        width: 790px;
+        width: 690px;
     }
 }
 
@@ -397,18 +409,37 @@ ul.nav-bar li>a:hover {
     .results {
         height: auto;
     }
-
     .katalog {
         justify-content: center;
     }
-
     .item_of_katalog {
         height: 250px;
         width: 30%;
     }
 }
 
-@media (max-width: 758px) {
+@media (max-width: 750px) {
+    #navbar-checkbox {
+        opacity: 0;
+        position: absolute;
+    }
+    #navbar-checkbox:checked~ul.nav-bar {
+        max-height: 0px;
+        transition: .8s;
+    }
+    ul.nav-bar {
+        height: 0px;
+        overflow: hidden;
+    }
+    ul.nav-bar.l-600 {
+        height: 400px;
+    }
+    #navbar-checkbox~ul.nav-bar:before {
+        content: "";
+    }
+    #navbar-checkbox:checked~ul.nav-bar:before {
+        content: "";
+    }
     .results {
         display: flex;
         box-sizing: border-box;
@@ -418,19 +449,22 @@ ul.nav-bar li>a:hover {
         justify-content: center;
     }
     .projects_completed, .working_hours, .feedbacks, .happy_clients {
-        width: 240px;
+        height: 100px;
     }
     .img-skill {
         position: absolute;
         left: 0%;
         width: 100%;
-        background: url(/media/hexagons_general_page.png);
+        background: url(../media/hexagons_general_page.png);
         background-size: 100% 100%;
         background-attachment: fixed;
         opacity: .4;
     }
     .skill-level {
         padding-left: 0px;
+    }
+    .header {
+        padding-bottom: 80px;
     }
     .header .nav {
         display: flex;
@@ -439,7 +473,7 @@ ul.nav-bar li>a:hover {
         box-sizing: border-box;
         justify-content: center;
     }
-    .logotype {
+    .navbar-button.logotype {
         margin-top: 50px;
         display: flex;
         order: 2;
@@ -514,24 +548,25 @@ ul.nav-bar li>a:hover {
         width: 180px;
     }
 
+    .img-skill {
+        height: 60%;
+    }
     .item_of_katalog {
         width: 50%;
-        height: 220px;
+        height: 200px;
     }
-
     .video-box {
         padding-top: 50px;
         position: relative;
         height: auto;
     }
-
-    .video-box > p {
+    .video-box>p {
         width: 50%;
     }
     .video {
         background-color: transparent;
         border-radius: 0;
-        width: 400px;
+        width: 350px;
         height: 250px;
     }
 }
